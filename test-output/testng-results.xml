@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="7546" started-at="2015-04-16T05:36:57Z" finished-at="2015-04-16T05:37:05Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="7546" started-at="2015-04-16T05:36:57Z" finished-at="2015-04-16T05:37:05Z">
+      <class name="org.utest.Tests">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:org.utest.Tests@6e3c1e69]" name="setUp" is-config="true" duration-ms="7336" started-at="2015-04-16T01:36:57Z" finished-at="2015-04-16T01:37:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="test_1()[pri:0, instance:org.utest.Tests@6e3c1e69]" name="test_1" duration-ms="47" started-at="2015-04-16T01:37:05Z" finished-at="2015-04-16T01:37:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_1 -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:org.utest.Tests@6e3c1e69]" name="tearDown" is-config="true" duration-ms="143" started-at="2015-04-16T01:37:05Z" finished-at="2015-04-16T01:37:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.utest.Tests -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
