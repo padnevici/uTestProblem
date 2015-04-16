@@ -47,6 +47,7 @@ public class Browser {
 
 	public static void quit() {
 		webDriver.quit();
+		
 	}
 	
 	public static void implicitWait() {
