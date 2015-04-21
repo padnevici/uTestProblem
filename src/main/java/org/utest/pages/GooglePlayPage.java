@@ -1,40 +1,47 @@
 package org.utest.pages;
 
-import java.util.List;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeListener;
+
+import javax.swing.Action;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.*;
 import org.utest.Browser;
-import org.utest.Configs;
 import org.utest.Pages;
-import org.utest.pages.GoogleSearchPage.GoogleServices;
 
-public class GooglePlayPage {
+public class GooglePlayPage extends HeaderPage {
 
 	private static final Logger logger = LogManager
 			.getLogger(GooglePlayPage.class);
 
-	@FindBy(how = How.NAME, using = "q")
-	private WebElement searchBox;
+	@FindBy(how = How.XPATH, using = "//a[contains(@class,'see-more') and contains(@class,'apps') and contains(@href,'store')]")
+	private WebElement seeMoreAppsLnk;
 
-	@FindBy(how = How.XPATH, using = "//*[@id='gbwa']/div[contains(@class,'gb_6a')]/a[contains(@href,'/options/')]")
-	private WebElement appsBtn;
+	public void openPageForAnApp(String appName) {
+		logger.info(String
+				.format("Opening page for: '%s' application", appName));
 
-	@FindBy(how = How.XPATH, using = "//ul//li/a[contains(@href,'play.google')]")
-	private WebElement googlePlayLnk;
+		// discover more apps if case
+		Browser.implicitWait();
+		if (Browser.checkIfElementExists(seeMoreAppsLnk)) {
+			Browser.clickOnWebElement(seeMoreAppsLnk);
 
-	public void searchFor(String text) {
-		logger.info(String.format("Searching for: '%s'", text));
-		searchBox.sendKeys(text);
-		searchBox.submit();
-	}
+			for (int i = 0; i < 3; i++) {
+				Actions builder = new Actions(Browser.getWebDriver());
+				Browser.executeJavaScript("window.scrollTo(0,Math.max(document.documentElement.scrollHeight,document.body.scrollHeight,document.documentElement.clientHeight));");
+				builder.moveToElement(appsBtn).perform();
+				Browser.executeJavaScript("window.scrollTo(0,Math.max(document.documentElement.scrollHeight,document.body.scrollHeight,document.documentElement.clientHeight));");
+				Browser.implicitWait(3000);
+			}
+		}
 
-	public void openPageForAnApp(String pageName) {
-		logger.info(String.format("Opening page for: '%s'", pageName));
-		String xpath = String.format("//a[@title='%s']", pageName);
+		String xpath = String.format("//a[@title='%s']", appName);
 
 		// get all elements fir same name and click on first match
 		WebElement element = Browser.getWebDriver()
@@ -48,8 +55,7 @@ public class GooglePlayPage {
 
 		logger.info(String.format("Navigating to [%s] page", this.getClass()
 				.getName()));
-		Pages.getGoogleSearchPage().openPageForGoogleService(
-				GoogleServices.Play);
+		Pages.getHeaderPage().openPageForGoogleService(GoogleServices.Play);
 	}
 
 	public boolean isAt() {

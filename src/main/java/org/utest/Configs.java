@@ -13,7 +13,6 @@ import javax.xml.xpath.XPathFactory;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.utest.pages.GoogleSearchPage;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 

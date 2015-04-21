@@ -6,6 +6,7 @@
       <class name="org.utest.Tests">
         <methods>
           <include name="setUp"/>
+          <include name="tearDown"/>
           <include name="test_1"/>
         </methods>
       </class> <!-- org.utest.Tests -->

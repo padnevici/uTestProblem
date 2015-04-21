@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.sql.Time;
-import java.util.concurrent.Exchanger;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.*;
@@ -123,5 +121,10 @@ public class Browser {
 		{
 			return false;
 		}
+	}
+	
+	public static void executeJavaScript(String jsCode){
+		JavascriptExecutor jsx = (JavascriptExecutor)webDriver;
+		jsx.executeScript(jsCode, "");
 	}
 }
