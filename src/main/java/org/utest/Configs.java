@@ -1,6 +1,7 @@
 package org.utest;
 
 import java.io.IOException;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -9,6 +10,10 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.utest.pages.GoogleSearchPage;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
@@ -19,6 +24,9 @@ public class Configs {
 	private Document doc = null;
 	private XPathFactory xpathFactory = null;
 	private XPath xpath = null;
+	
+	private static final Logger logger = LogManager
+			.getLogger(Configs.class);
 
 	protected Configs() {
 		factory = DocumentBuilderFactory.newInstance();
@@ -30,13 +38,13 @@ public class Configs {
 			builder = factory.newDocumentBuilder();
 			doc = builder.parse("src/resources/Config.xml");
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error("Cannot find src/resources/Config.xml", e);
 		} catch (ParserConfigurationException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("An error while reading Config.xml", e);
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error("An error while reading Config.xml", e);
 		}
 	}
 
@@ -55,7 +63,7 @@ public class Configs {
                 xpath.compile("configs/defaultURL");
             url = (String) expr.evaluate(doc, XPathConstants.STRING);
         } catch (XPathExpressionException e) {
-            e.printStackTrace();
+        	logger.error("An error while executing xpath query", e);
         }
 		return url;
 	}
@@ -68,7 +76,7 @@ public class Configs {
                 xpath.compile("configs/mainBrowser");
             browserType = (String) expr.evaluate(doc, XPathConstants.STRING);
         } catch (XPathExpressionException e) {
-            e.printStackTrace();
+        	logger.error("An error while executing xpath query", e);
         }
 		return browserType;
 	}
@@ -81,7 +89,7 @@ public class Configs {
                 xpath.compile("configs/implicitWaitMls");
             time = Long.parseLong((String) expr.evaluate(doc, XPathConstants.STRING));
         } catch (XPathExpressionException e) {
-            e.printStackTrace();
+        	logger.error("An error while executing xpath query", e);
         }
 		return time;
 	}
@@ -94,7 +102,7 @@ public class Configs {
                 xpath.compile("configs/implicitSeleniumWaitSec");
             time = Long.parseLong((String) expr.evaluate(doc, XPathConstants.STRING));
         } catch (XPathExpressionException e) {
-            e.printStackTrace();
+        	logger.error("An error while executing xpath query", e);
         }
 		return time;
 	}
