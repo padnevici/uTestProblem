@@ -31,11 +31,11 @@ public class TestBase extends TestListenerAdapter {
 
 	@Override
 	public void onTestSkipped(ITestResult tr) {
-		logger.error("[Test Skipped]: "+ tr.getMethod());
+		logger.info("[Test Skipped]: "+ tr.getMethod());
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult tr) {
-		logger.error("[Test Passed]: "+ tr.getMethod());
+		logger.info("[Test Passed]: "+ tr.getMethod());
 	}
 }
