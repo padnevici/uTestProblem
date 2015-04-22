@@ -8,9 +8,9 @@ import org.utest.pages.Application;
 import org.utest.pages.GooglePlayPage;
 import org.utest.pages.HeaderPage.GoogleServices;
 
-public class Tests extends TestBase {
-	private static final Logger logger = LogManager.getLogger(Tests.class);
 
+public class Tests extends TestBase {
+	
 	@Test
 	public void test_1() {
 		try {
@@ -25,7 +25,7 @@ public class Tests extends TestBase {
 
 			Pages.getApplicationPage().isAt("SoftwareTesting");
 			Application app = Pages.getApplicationPage().getApplicationObject();
-			Assert.fail("arteficial fail");
+
 			Assert.assertNotEquals(app.getName(), "");
 			Assert.assertNotEquals(app.getRating(), 0);
 			Assert.assertNotEquals(app.getReviews(), 0);
@@ -36,7 +36,7 @@ public class Tests extends TestBase {
 		} catch (Exception e) {
 			logger.error(e);
 			logger.error(e.getStackTrace());
-			Assert.fail("", e);
+			Assert.fail("An error occured during execution", e);
 		}
 	}
 }
