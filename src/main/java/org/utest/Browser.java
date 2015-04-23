@@ -21,15 +21,16 @@ public class Browser {
 		logger = LogManager.getLogger(Browser.class.getName());
 
 		logger.debug(String.format("Initialising"));
-		String browserType = Configs.getInstance().getBrowser().toLowerCase();
-		if (browserType.toLowerCase().trim() == "chrome")
+		String browserType = Configs.getInstance().getBrowser().toLowerCase()
+				.trim();
+		if (browserType.equals("chrome"))
 			initChrome();
-		else if (browserType.toLowerCase().trim() == "firefox")
+		else if (browserType.equals("firefox"))
 			initFirefox();
 		else
 			initFirefox();
 	}
-	
+
 	private static void configureLog4jXML() {
 		String content = null;
 		File file = new File("src/resources/log4j2Tmp.xml"); // for ex foo.txt
@@ -54,6 +55,7 @@ public class Browser {
 
 	private static void initChrome() {
 		logger.debug(String.format("Starting Chrome browser"));
+		System.setProperty("webdriver.chrome.driver","chromedriver.exe");
 		webDriver = new ChromeDriver();
 		init();
 	}
@@ -112,19 +114,17 @@ public class Browser {
 		element.click();
 		implicitWait();
 	}
-	
+
 	public static boolean checkIfElementExists(WebElement element) {
-		try{
+		try {
 			return element.isDisplayed();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			return false;
 		}
 	}
-	
-	public static void executeJavaScript(String jsCode){
-		JavascriptExecutor jsx = (JavascriptExecutor)webDriver;
+
+	public static void executeJavaScript(String jsCode) {
+		JavascriptExecutor jsx = (JavascriptExecutor) webDriver;
 		jsx.executeScript(jsCode, "");
 	}
 }
