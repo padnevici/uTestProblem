@@ -1,13 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="none">
-  <listeners>
-    <listener class-name="org.utest.TestBase" />
-  </listeners>
-  
-  <test name="Test">
-    <classes>
-      <class name="org.utest.Tests"/>
-    </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+	<listeners>
+		<listener class-name="org.utest.TestBase" />
+	</listeners>
+
+	<test name="Test 1">
+		<parameter name="searchString" value="Software Testing Concepts"></parameter>
+		<parameter name="applicationName" value="SoftwareTesting"></parameter>
+		<classes>
+			<class name="org.utest.Tests">
+				<methods>
+					<include name="test_1" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	<test name="Test 2">
+		<parameter name="searchString" value="SoftwareTesting"></parameter>
+		<parameter name="applicationName" value="SoftwareTesting"></parameter>
+		<classes>
+			<class name="org.utest.Tests">
+				<methods>
+					<include name="test_1" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+	<test name="Test 3">
+		<parameter name="searchString" value="Sound"></parameter>
+		<parameter name="applicationName" value="Sound Booster"></parameter>
+		<classes>
+			<class name="org.utest.Tests">
+				<methods>
+					<include name="test_1" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>

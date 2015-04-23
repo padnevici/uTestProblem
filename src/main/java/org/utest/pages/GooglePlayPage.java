@@ -39,7 +39,7 @@ public class GooglePlayPage extends HeaderPage {
 		long countAfter = 0;
 
 		// discover more apps if case
-		Browser.implicitWait();
+		Browser.implicitWait(1000);
 
 		boolean keepSearching = true;
 		while (keepSearching) {

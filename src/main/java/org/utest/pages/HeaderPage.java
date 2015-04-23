@@ -14,7 +14,7 @@ public class HeaderPage {
 		Play, Drive, YouTube, Gmail, Maps, Calendar, News
 	}
 
-	@FindBy(how = How.XPATH, using = "//*[@id='gbwa']/div[contains(@class,'gb_6a')]/a[contains(@href,'/options/')]")
+	@FindBy(how = How.XPATH, using = "//*[@id='gbwa']/div[contains(@class,'gb_')]/a[contains(@href,'/options/') and contains(@title,'Apps')]")
 	protected WebElement appsBtn;
 
 	@FindBy(how = How.XPATH, using = "//ul//li/a[contains(@href,'play.google')]")
