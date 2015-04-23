@@ -2,10 +2,10 @@
 This is response for uTest's test problem for automated testers
 
 # Prerequisites
-1) Install latest version of JDK. (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-2) Install latest version of Maven (https://maven.apache.org/download.cgi)
-3) Add JAVA_HOME to the variables
-4) Add Maven to the Path, so you are able to run mvn command from console (https://maven.apache.org/guides/getting-started/windows-prerequisites.html)
+1. Install latest version of JDK. (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+2. Install latest version of Maven (https://maven.apache.org/download.cgi)
+3. Add JAVA_HOME to the variables
+4. Add Maven to the Path, so you are able to run mvn command from console (https://maven.apache.org/guides/getting-started/windows-prerequisites.html)
 
 If you are able to run mvn command in command line then you are all set. Example of execution is below:
 > mvn -version
