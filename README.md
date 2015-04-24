@@ -16,3 +16,13 @@ If you are able to run mvn command in command line then you are all set. Example
 > Java home: C:\Program Files\Java\jre1.8.0_45
 > Default locale: en_US, platform encoding: Cp1252
 > OS name: "windows 8.1", version: "6.3", arch: "amd64", family: "dos"
+
+
+# How To Run
+1. In order to run script, please execute "run.bat" batch file. It is located in root directory of the project.
+
+# Framework Configuration
+There is configuration file (Config.xml) in 'src/resources'. At this file you can configure Browser type, default url, and some timeouts.
+
+# Test case configuration
+There is testng.xml configuration at the root folder of the project. From this file you can add different parameters for written scenario. This file contains examples, so you can add your parameters very easy.
