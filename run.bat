@@ -1,4 +1,2 @@
 mvn test
-
-pause
 pause
