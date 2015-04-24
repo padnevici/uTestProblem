@@ -1,5 +1,8 @@
 # uTestProblem
-This is response for uTest's test problem for automated testers
+This is response for uTest's test problem for automated testers.
+
+# NOTE
+I have tested this app only on windows platform. I am not sure if this example will run well on Unix or Mac platforms.
 
 # Prerequisites
 1. Install latest version of JDK. (http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
@@ -19,7 +22,7 @@ If you are able to run mvn command in command line then you are all set. Example
 
 
 # How To Run
-1. In order to run script, please execute "run.bat" batch file. It is located in root directory of the project.
+In order to run script, please execute "run.bat" batch file. It is located in root directory of the project. The CMD window is closed after execution, even if there is pause at the end. Seems like the mvn does something at the end, not sure why. Anyway, you can see results in the generated log file. Logs are colected in 'Logs' folder of root project folder. If you would like to see results in console then you have to run 'run.bat' batch file from CMD window.
 
 # Framework Configuration
 There is configuration file (Config.xml) in 'src/resources'. At this file you can configure Browser type, default url, and some timeouts.
